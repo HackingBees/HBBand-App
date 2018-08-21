@@ -11,4 +11,8 @@ para executar
 
 ionic serve --labs
 
-![alt text]https://github.com/EduMiada/HackingBees-Ionic-Lab/blob/master/docs/images/pagina_login_home.PNG
+
+![Taxonomia](https://github.com/EduMiada/HackingBees-Ionic-Lab/blob/master/docs/images/taxonomia.PNG)
+
+
+![Página Login](https://github.com/EduMiada/HackingBees-Ionic-Lab/blob/master/docs/images/pagina_login_home.PNG)
