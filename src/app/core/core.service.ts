@@ -11,7 +11,7 @@ export class CoreService {
   public SERVER_URL: string = 'http://localhost:1337';
   public API_ENDPOINT = {
     API_AUTHENTICATE: '/auth/signin',
-    API_USERS: '/users',
+    API_USERS: '/user',
   };
 
 

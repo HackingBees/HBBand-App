@@ -5,6 +5,14 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+  HackingBees Home Page
+
+  <ion-card *ngFor="let user of users ">
+  
+    <ion-card-content>
+      <ion-card-title>Hello {{user.username}} </ion-card-title>
+      <p>email: {{ user.email }} </p>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
