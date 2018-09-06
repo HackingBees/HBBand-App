@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpJwtInterceptor } from './helper/http.jwt.interceptor';
 import { HttpErrorInterceptor } from './helper/http.error.interceptor';
+//import { BandCreatePage } from './pages/band/band-create/band-create.page';
 
 @NgModule({
   declarations: [AppComponent],

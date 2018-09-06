@@ -8,12 +8,13 @@ import { CoreService } from '../core/core.service';
 
 @Injectable()
 export class HttpJwtInterceptor implements HttpInterceptor {
-    constructor(private coreService:CoreService){}
+    constructor(){}
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // add authorization header with jwt token if available
         request.url
-        let currentUser = this.coreService.getLoggedUser();
-        if (currentUser && currentUser.token) {
+        let currentUser = CoreService.getLoggedUserJWT();
+
+       if (currentUser && currentUser.token) {
             request = request.clone({
                 setHeaders: { 
                     Authorization: `Bearer ${currentUser.token}`

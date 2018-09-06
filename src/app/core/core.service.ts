@@ -8,10 +8,12 @@ import {
 
 export class CoreService {
 
-  public SERVER_URL: string = 'http://localhost:1337';
-  public API_ENDPOINT = {
+  public static SERVER_URL: string = 'http://localhost:1337';
+  
+  public static API_ENDPOINT = {
     API_AUTHENTICATE: '/auth/signin',
-    API_USERS: '/user',
+    API_USER: '/api/user',
+    API_BAND: '/api/band'
   };
 
 
@@ -19,24 +21,27 @@ export class CoreService {
 
 
   //Manage Storage to Session maybe one day local storage db
-  setStorage(key, value) {
+  public static setStorage(key, value) {
     localStorage[key] = value;
   }
-  getStorage(key, defaultValue) {
+  public static getStorage(key, defaultValue) {
     return localStorage[key] || defaultValue;
   }
-  setStoreObject(key, value) {
+  public static setStoreObject(key, value) {
     localStorage[key] = JSON.stringify(value);
   }
-  getStoreObject(key) {
+  public static getStoreObject(key) {
     return JSON.parse(localStorage[key] || '{}');
   }
 
-  getLoggedUser(){
+  public static getLoggedUserJWT( ){
+    return JSON.parse(localStorage.getItem('LoggedUser'));
+  }
+  public static getLoggedUser(){
     return JSON.parse(localStorage.getItem('LoggedUser'));
   }
 
-  setLoggedUser(user){
+  public static setLoggedUser(user){
      localStorage.setItem('LoggedUser', user);
   }
 

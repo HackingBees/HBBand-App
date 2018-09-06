@@ -6,16 +6,16 @@ import { CoreService } from '../core/core.service';
 @Injectable({ providedIn: 'root' })
 
 export class AuthenticationService {
-  constructor(private http: HttpClient, private coreService:CoreService) { }
+  constructor(private http: HttpClient) { }
 
   login(username: string, password: string) {
-      return this.http.post<any>(this.coreService.SERVER_URL + this.coreService.API_ENDPOINT.API_AUTHENTICATE, {'email': username,'password': password })
+      return this.http.post<any>(CoreService.SERVER_URL + CoreService.API_ENDPOINT.API_AUTHENTICATE, {'email': username,'password': password })
           .pipe(map(user => {
               // login successful if there's a jwt token in the response\
               console.log(user)
               if (user && user.token) {
                   // store user details and jwt token in local storage to keep user logged in between page refreshes
-                  this.coreService.setLoggedUser(JSON.stringify(user));
+                  CoreService.setLoggedUser(JSON.stringify(user));
               }
 
               return user;
@@ -26,7 +26,7 @@ export class AuthenticationService {
       // remove user from local storage to log user out
       // create a new method to kill the session on sails server ??
       //localStorage.removeItem('currentUser');
-      this.coreService.setLoggedUser(null);
+      CoreService.setLoggedUser(null);
   }
 }
 

@@ -7,9 +7,9 @@ import { CoreService } from '../core/core.service';
 
 export class UserService {
 
-  constructor(private http:HttpClient, private coreService:CoreService) { }
+  constructor(private http:HttpClient) { }
 
   getUsers(){
-    return this.http.get<User[]>(this.coreService.SERVER_URL + this.coreService.API_ENDPOINT.API_USERS);
+    return this.http.get<User[]>(CoreService.SERVER_URL + CoreService.API_ENDPOINT.API_USER);
   }
 }

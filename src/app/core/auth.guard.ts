@@ -6,11 +6,11 @@ import { CoreService } from './core.service';
 
 export class AuthGuard implements CanActivate {
 
-  constructor(private router: Router, private coreService:CoreService) { }
+  constructor(private router: Router) { }
 
   //Create a method to validate the JWT on the user object
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (this.coreService.getLoggedUser()) {
+    if (CoreService.getLoggedUserJWT()) {
         return true;
     }
 
